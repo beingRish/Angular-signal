@@ -1,0 +1,30 @@
+.movie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 16px;
+}
+
+.movie-list {
+    background-color: #D3D3D3;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.movie-list:hover {
+    background-color: #c4c4c4;
+}
+
+.movie-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.movie-year {
+    font-size: 16px;
+    color: #718096;
+}

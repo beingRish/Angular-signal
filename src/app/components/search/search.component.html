@@ -1,0 +1,17 @@
+<div class="search">
+    <div class="search-container">
+      
+      <h1 class="movie-search">Movie Search</h1>
+      
+       @if (selectedMovie) {
+            <div class="movie-title">
+                <h3 class="selected-movie">Selected Movie: {{ selectedMovie.title }}</h3>
+            </div>
+       }
+            
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search movies..." class="search-input" />
+      
+      <app-movie-list (movieClick)="onMovieSelection($event)" [searchInput]="searchTerm"></app-movie-list>
+    </div>
+  </div>
+  

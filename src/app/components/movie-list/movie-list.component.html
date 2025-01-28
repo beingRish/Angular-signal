@@ -1,0 +1,8 @@
+<div class="movie">
+    @for(movie of filteredMoviesSignal(); track movie) {
+    <div class="movie-list" (click)="handleMovieClick(movie)">
+        <h2 class="movie-title">{{ movie.title }}</h2>
+        <p class="movie-year">Year: {{ movie.year }}</p>
+    </div>
+    }
+</div>
