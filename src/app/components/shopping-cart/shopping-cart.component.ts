@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule} from '@angular/material/input';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -21,5 +22,5 @@ import { MatInputModule} from '@angular/material/input';
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent {
-
+  constructor(public productService: ProductService) {}
 }

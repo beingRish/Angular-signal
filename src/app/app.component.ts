@@ -7,7 +7,7 @@ import { MatBadgeModule } from "@angular/material/badge";
 import { MatButtonModule } from "@angular/material/button";
 import { ProductListComponent } from "./components/product-list/product-list.component";
 import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
-
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -16,6 +16,7 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   imports: [
+    CommonModule,
     RouterOutlet,
     SearchComponent,
     MatToolbarModule,
@@ -23,7 +24,7 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
     MatBadgeModule,
     MatButtonModule,
     ProductListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
 ],
 })
 export class AppComponent {

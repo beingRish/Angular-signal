@@ -14,10 +14,44 @@
     margin-bottom: 0;
 }
 
+mat-list {
+    padding-top: 2rem;
+}
+
 mat-card-content {
     font-size: 14px;
-    background-color: #666 !important;
 }
+
+.mat-list-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+  
+  .quantity-input {
+    background-color: gray;
+    height: 100%;
+    width: 4rem;
+    margin-right: 1rem;
+  }
+  
+  .quantity-input input {
+    height: 100%;
+    width: 100%;
+    border-bottom: none;
+    text-align: center;
+  }
+  
+  .item-price {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .delete-button {
+    margin-left: 1rem;
+    color: red;
+  }
 
 .cart-card mat-raised-button {
     width: 100%;
