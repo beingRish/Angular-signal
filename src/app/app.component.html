@@ -21,3 +21,21 @@
         <app-shopping-cart></app-shopping-cart>
     </div>
 </div>
+
+<mat-toolbar class="app-toolbar">
+    <span>Mastering Angular Inject Function</span>
+</mat-toolbar>
+
+<ul>
+    @for (user of users; track user) {
+        <li>{{user['name']}}</li>
+    }
+</ul>
+
+
+
+<ul>
+    @for (user of (user$ | async); track user) {
+        <li>{{user['name']}}</li>
+    }
+</ul>
