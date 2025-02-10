@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SearchComponent } from "./components/search/search.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -9,7 +9,6 @@ import { ProductListComponent } from "./components/product-list/product-list.com
 import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
 import { ProductService } from './services/product.service';
 import { fetchData, UserService } from './services/user.service';
-import { HttpClientModule } from '@angular/common/http';
 import { AsyncPipe } from '@angular/common';
 
 
@@ -27,7 +26,6 @@ import { AsyncPipe } from '@angular/common';
     MatButtonModule,
     ProductListComponent,
     ShoppingCartComponent,
-    HttpClientModule,
     AsyncPipe
   ]
 })
@@ -47,10 +45,33 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.getUser();
+    this.updateDate();
   }
 
+  // with zone
+
+  // Example 1
+  // Property set in an event handler
+  count = 1;
+  cdr = inject(ChangeDetectorRef)
+  onCountClick() {
+    this.count++;
+  }
+
+  // Example 2
+  // Property updated in a setInterval event handler
+  date = new Date();
+  updateDate() {
+    setInterval(() => {
+      this.date = new Date();
+      this.cdr.markForCheck();
+    })
+  }
+
+  // Example 3
+  // Fetching Data with API call 
   getUser() {
-    this.userService.getUser().subscribe((users: any) => {
+    this.userService.getUsers().subscribe((users: any) => {
       this.users = users
     })
   }

@@ -32,10 +32,16 @@
     }
 </ul>
 
-
-
 <ul>
     @for (user of (user$ | async); track user) {
         <li>{{user['name']}}</li>
     }
 </ul>
+
+<mat-toolbar class="app-toolbar">
+    <span>Angular Zoneless Feature</span>
+</mat-toolbar>
+<div class="p-5">
+    <button (click)="onCountClick()">Count {{count}}</button>
+</div>
+<div>Today date is {{date}}
