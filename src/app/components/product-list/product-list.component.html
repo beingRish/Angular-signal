@@ -1,7 +1,12 @@
 <div class="product-grid">
     @for (product of productService.getProducts(); track product) {
         <mat-card class="product-card">
-            <img title="product-image" mat-card-image [src]="product.imageUrl" [alt]="product.name">
+            <img 
+                title="product-image" 
+                mat-card-image 
+                [src]="product.imageUrl" 
+                [alt]="product.name"
+            >
             <mat-card-content>
                 <h2>{{ product.name }}</h2>
                 <p class="price">${{ product.price.toFixed(2) }}</p>

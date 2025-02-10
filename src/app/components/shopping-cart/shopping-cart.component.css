@@ -22,37 +22,6 @@ mat-card-content {
     font-size: 14px;
 }
 
-.mat-list-item-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 4rem;
-  }
-  
-  .quantity-input {
-    background-color: gray;
-    height: 100%;
-    width: 4rem;
-    margin-right: 1rem;
-  }
-  
-  .quantity-input input {
-    height: 100%;
-    width: 100%;
-    border-bottom: none;
-    text-align: center;
-  }
-  
-  .item-price {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  .delete-button {
-    margin-left: 1rem;
-    color: red;
-  }
-
 .cart-card mat-raised-button {
     width: 100%;
     font-size: 16px;
@@ -62,22 +31,67 @@ mat-card-content {
 
 .cart-card mat-card-actions {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     padding: 1rem;
     padding-top: 0;
 }
 
 .cart-card mat-card-actions button {
-    font-size: 16px; 
-    border-radius: 2rem; 
+    font-size: 16px;
+    color: #007bff;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    padding: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .cart-card mat-card-actions button:hover {
-    background-color: hsl(345, 2%, 45%);
+    background-color: hsl(0, 0%, 0%);
+    color: white;
 }
 
 .cart-card mat-card-actions button[disabled] {
-    background-color: #e0e0e0; 
-    color: #bdbdbd; 
+    background-color: #e0e0e0;
+    color: #bdbdbd;
+    border: none;
+}
+
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: end;
+    margin-right: .2rem;
+}
+
+mat-list-item {
+    padding-top: 2rem;
+    padding-left: 3.5rem;
+    padding-bottom: 2rem;
+}
+
+.mat-list-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.quantity-input {
+    width: 70px;
+    margin-right: 10px;
+    background-color: #f5f5f5;flex-shrink: 0; 
+}
+
+.item-price {
+    flex-grow: 1; 
+    text-align: center; 
+    margin-right: 10px; 
+}
+
+button {
+    color: #f44336;
+    flex-shrink: 0; 
 }

@@ -9,7 +9,7 @@
             </div>
        }
             
-      <input type="text" [(ngModel)]="searchTerm" placeholder="Search movies..." class="search-input" />
+      <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Search movies..." class="search-input" />
       
       <app-movie-list (movieClick)="onMovieSelection($event)" [searchInput]="searchTerm"></app-movie-list>
     </div>

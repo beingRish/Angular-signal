@@ -33,4 +33,14 @@ export class ProductService {
     });
   }
 
+  updateQuantity(productId: number ,quantity: number) {
+    this.cart.update(prevCart => prevCart.map(item => item.product.id === productId ? {...item, quantity} : item))
+  }
+
+  removeCart(productId: number) {
+    this.cart.update(prevCart => prevCart.filter(item => item.product.id !== productId))
+  }
+
+  getCartItemCount = computed(() => this.cart().reduce((acc, item) => acc + item.quantity, 0))
+
 }
