@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SearchComponent } from "./components/search/search.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -41,6 +41,12 @@ export class AppComponent {
     public productService: ProductService
   ) {
     fetchData(); // call the fetchData function when the component is initialized
+
+    this.quantity.set(100)
+    this.quantity.set(200)
+    this.quantity.set(1000)
+
+    effect(() => console.log('Total quantity:', this.quantity()));
   }
 
   ngOnInit(): void {
@@ -53,9 +59,18 @@ export class AppComponent {
   // Example 1
   // Property set in an event handler
   count = 1;
-  cdr = inject(ChangeDetectorRef)
-  onCountClick() {
+  price = 100;
+  quantity = signal(10);
+  colors = signal<string[]>(["Red", "Green", "Yellow", "Blue"])
+  computedPrice = computed(() => this.quantity() * this.count)
+  // cdr = inject(ChangeDetectorRef)
+  get productPrice(): number {
+    return this.price = this.price * this.count;
+  }
+
+  onIncrement() {
     this.count++;
+    this.quantity.update(value => value + 1)
   }
 
   // Example 2
@@ -64,7 +79,7 @@ export class AppComponent {
   updateDate() {
     setInterval(() => {
       this.date = new Date();
-      this.cdr.markForCheck();
+      // this.cdr.markForCheck();
     })
   }
 

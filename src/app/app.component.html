@@ -41,7 +41,14 @@
 <mat-toolbar class="app-toolbar">
     <span>Angular Zoneless Feature</span>
 </mat-toolbar>
-<div class="p-5">
-    <button (click)="onCountClick()">Count {{count}}</button>
+
+<div class="px-5">
+    <h1>count {{count}}</h1>
+    <h2>productPrice {{productPrice}}</h2>
+    <h3>quantity {{quantity()}}</h3>
+    <h4>computedPrice {{computedPrice()}}</h4>
+</div>
+<div class="px-5">
+    <button class="text-primary" (click)="onIncrement()">Increment</button>
 </div>
 <div>Today date is {{date}}
