@@ -10,6 +10,7 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
 import { ProductService } from './services/product.service';
 import { fetchData, UserService } from './services/user.service';
 import { AsyncPipe } from '@angular/common';
+import { FormComponent } from "./components/form/form.component";
 
 
 @Component({
@@ -26,8 +27,9 @@ import { AsyncPipe } from '@angular/common';
     MatButtonModule,
     ProductListComponent,
     ShoppingCartComponent,
-    AsyncPipe
-  ]
+    AsyncPipe,
+    FormComponent
+]
 })
 export class AppComponent {
   title = 'Angular-signal';
