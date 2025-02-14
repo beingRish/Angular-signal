@@ -1,21 +1,105 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-3">
-            <form #userForm="ngForm" (ngSubmit)="onSubmitForm()">
+            <form 
+                #userForm="ngForm" 
+                (ngSubmit)="onSubmitForm(userForm)">
                 <div class="mb-3 mt-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" name="email" [(ngModel)]="userDetails.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <label 
+                        for="exampleInputEmail1" 
+                        class="form-label"
+                    >Email address</label>
+                    <input
+                        type="email" 
+                        name="email" 
+                        [(ngModel)]="userDetails.email" 
+                        class="form-control" 
+                        id="exampleInputEmail1" 
+                        aria-describedby="emailHelp"
+                        required
+                        minlength="5"
+                    >
+                    <div 
+                        id="emailHelp" 
+                        class="form-text"
+                    >
+                        We'll never share your email with anyone else.
+                    </div>
+                    @if (
+                        userForm.controls['email'] && 
+                        userForm.controls['email'].touched 
+                        && userForm.controls['email'].dirty 
+                        && userForm.controls['email'].invalid
+                    ) {
+                        @if (
+                            userForm.controls['email'].errors?.['required']
+                        ) {
+                            <div class="text-danger text-xs">
+                                Email address is required.
+                            </div>
+                        }
+                        @if (
+                            userForm.controls['email'].errors?.['minlength']
+                        ) {
+                            <div class="text-danger text-xs">
+                                Email id should be at least 5 characters.
+                            </div>
+                        }
+                    }
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" name="password" [(ngModel)]="userDetails.password" class="form-control" id="exampleInputPassword1">
+                    <label 
+                        for="exampleInputPassword1" 
+                        class="form-label"
+                    >
+                        Password
+                    </label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        [(ngModel)]="userDetails.password" 
+                        class="form-control" 
+                        id="exampleInputPassword1"
+                        pattern="\w{3,16}"
+                        required
+                        maxlength="17"
+                        minlength="3"
+                    >
+                    @if (
+                        userForm.controls['password'] && 
+                        userForm.controls['password'].touched && 
+                        userForm.controls['password'].dirty && 
+                        userForm.controls['password'].invalid
+                    ) {
+                        @if (
+                            userForm.controls['password'].errors?.['patters']
+                        ) {
+                            <div class="text-danger text-xs">
+                                Incorrect password. Please enter right format.
+                            </div>
+                        }
+                    }
                 </div>
                 <div class="mb-3 mt-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <input 
+                        type="checkbox" 
+                        class="form-check-input" 
+                        id="exampleCheck1"
+                    >
+                    <label 
+                        class="form-check-label" 
+                        for="exampleCheck1"
+                    >
+                        Check me out
+                    </label>
                 </div>
-                <button type="submit" class="btn btn-primary mb-3 mt-3">Submit</button>
+                <button 
+                    type="submit" 
+                    class="btn btn-primary mb-3 mt-3"
+                    [disabled]="!userForm.valid"
+                >
+                    Submit
+                </button>
             </form>
         </div>
     </div>

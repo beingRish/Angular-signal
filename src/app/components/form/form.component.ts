@@ -16,12 +16,15 @@ import { CommonModule } from '@angular/common';
 })
 export class FormComponent {
 userDetails: User = {
-  email: 'rishabh@gmail.com',
-  password: 'Rishabh12345@'
+  email: '',
+  password: ''
 }
 
-onSubmitForm() {
-  
+onSubmitForm(userForm: any) {
+  console.log(userForm, this.userDetails);
+  if(userForm.valid) {
+    console.log(userForm.value, this.userDetails);
+  }
 }
 
 }
